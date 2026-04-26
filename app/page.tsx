@@ -1,74 +1,14 @@
 import AppCard from '../components/AppCard';
 import ScrollReveal from '../components/ScrollReveal';
-
-const APPS = [
-  {
-    icon: '🏟️',
-    name: 'Sports Controls',
-    tagline: 'Contrôle des équipements sportifs',
-    description:
-      'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs. Rapports PDF automatiques, suivi des anomalies en temps réel, multi-sites.',
-    platforms: ['iOS', 'Android', 'Web'],
-    href: '/apps/sports-controls',
-  },
-];
-
-const FEATURES = [
-  {
-    icon: '📱',
-    title: 'Mobile-first',
-    desc: 'iOS & Android natif ou React Native, pensé pour le terrain. Interface optimisée pour les agents, pas pour les développeurs.',
-  },
-  {
-    icon: '☁️',
-    title: 'Cloud & temps réel',
-    desc: 'Données synchronisées instantanément, accessibles partout. Infrastructure scalable, sécurisée et haute disponibilité.',
-  },
-  {
-    icon: '🎯',
-    title: 'Sur mesure',
-    desc: 'Chaque app répond à un besoin métier précis. Pas de fonctionnalités inutiles, juste ce qui compte pour vos équipes.',
-  },
-];
-
-const STEPS = [
-  {
-    number: '01',
-    title: 'On écoute votre besoin',
-    desc: 'Un appel suffit pour comprendre votre contexte, vos contraintes et vos objectifs opérationnels.',
-  },
-  {
-    number: '02',
-    title: 'On conçoit la solution',
-    desc: 'Maquettes, architecture, stack technique : on vous présente un plan clair avant de coder la moindre ligne.',
-  },
-  {
-    number: '03',
-    title: 'On livre et on accompagne',
-    desc: 'Déploiement, formation, support. On reste à vos côtés bien après la mise en production.',
-  },
-];
-
-const STATS = [
-  { value: '1+', label: 'App en production' },
-  { value: '100%', label: 'Mobile-first' },
-  { value: '60j', label: 'Délai moyen de livraison' },
-  { value: '0€', label: 'Commission sur vos revenus' },
-];
-
-const STACK = [
-  'Next.js', 'React Native', 'Supabase', 'Firebase', 'Expo',
-  'Tailwind CSS', 'TypeScript', 'PostgreSQL', 'Vercel', 'AWS',
-];
+import { APPS, FEATURES, STEPS, STATS, STACK } from './data/homeData';
 
 export default function HomePage() {
   return (
     <>
       {/* ─────────────────────────── HERO ─────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
-
         {/* Floating orbs */}
-        <div className="absolute -top-20 -left-32 w-[600px] h-[600px] bg-purple-700/20 rounded-full blur-3xl animate-float pointer-events-none" />
+        <div className="absolute -top-20 -left-32 w-[600px] h-[600px] bg-brand-700/20 rounded-full blur-3xl animate-float pointer-events-none" />
         <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-indigo-700/18 rounded-full blur-3xl animate-float2 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-800/12 rounded-full blur-2xl animate-float3 pointer-events-none" />
 
@@ -80,24 +20,26 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-
           {/* Badge */}
           <div className="hero-badge inline-flex items-center gap-3 shimmer-badge border border-white/10 text-zinc-300 text-sm px-5 py-2.5 rounded-full mb-10">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full" style={{ animation: 'pulse-dot 2s ease-in-out infinite' }} />
+            <span
+              className="w-2 h-2 bg-emerald-400 rounded-full"
+              style={{ animation: 'pulse-dot 2s ease-in-out infinite' }}
+            />
             Sports Controls disponible sur l&apos;App Store & Play Store
           </div>
 
           {/* Headline */}
           <h1 className="hero-h1 text-5xl sm:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
-            Des apps pensées<br />
+            Des apps pensées
+            <br />
             pour <span className="gradient-text">les professionnels</span>
           </h1>
 
           {/* Subtext */}
           <p className="hero-p text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Nous concevons des applications mobiles et web sur mesure,
-            robustes et intuitives, pour répondre aux besoins métier
-            des équipes terrain.
+            Nous concevons des applications mobiles et web sur mesure, robustes et intuitives, pour
+            répondre aux besoins métier des équipes terrain.
           </p>
 
           {/* CTAs */}
@@ -142,11 +84,13 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-purple-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
                 Notre approche
               </span>
               <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
-                Tout ce qu&apos;il faut.<br />Rien de superflu.
+                Tout ce qu&apos;il faut.
+                <br />
+                Rien de superflu.
               </h2>
               <p className="text-zinc-500 text-lg max-w-xl mx-auto">
                 Des apps qui fonctionnent vraiment, construites avec les bons outils.
@@ -157,11 +101,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
               <ScrollReveal key={f.title} delay={i * 100}>
-                <div className="group p-8 rounded-2xl border border-zinc-100 bg-white
-                                hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-50 hover:border-purple-100
-                                transition-all duration-300 h-full">
+                <div
+                  className="group p-8 rounded-2xl border border-zinc-100 bg-white
+                                hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-50 hover:border-brand-100
+                                transition-all duration-300 h-full"
+                >
                   <div className="text-4xl mb-6">{f.icon}</div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-purple-700 transition-colors">
+                  <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-brand-700 transition-colors">
                     {f.title}
                   </h3>
                   <p className="text-zinc-500 leading-relaxed text-sm">{f.desc}</p>
@@ -177,7 +123,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-purple-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
                 Nos applications
               </span>
               <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
@@ -213,7 +159,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-purple-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
                 Process
               </span>
               <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
@@ -228,14 +174,16 @@ export default function HomePage() {
           <div className="space-y-5">
             {STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 120}>
-                <div className="group flex gap-6 p-8 rounded-2xl border border-zinc-100 bg-white
-                                hover:border-purple-100 hover:shadow-xl hover:shadow-purple-50/50
-                                transition-all duration-300">
-                  <div className="text-6xl font-black text-zinc-100 group-hover:text-purple-100 transition-colors shrink-0 leading-none mt-1 select-none">
+                <div
+                  className="group flex gap-6 p-8 rounded-2xl border border-zinc-100 bg-white
+                                hover:border-brand-100 hover:shadow-xl hover:shadow-brand-50/50
+                                transition-all duration-300"
+                >
+                  <div className="text-6xl font-black text-zinc-100 group-hover:text-brand-100 transition-colors shrink-0 leading-none mt-1 select-none">
                     {step.number}
                   </div>
                   <div className="py-1">
-                    <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-purple-700 transition-colors">
+                    <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-brand-700 transition-colors">
                       {step.title}
                     </h3>
                     <p className="text-zinc-500 leading-relaxed">{step.desc}</p>
@@ -248,13 +196,15 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── STATS ─────────────────────────── */}
-      <section className="py-28 px-6 bg-gradient-to-br from-zinc-950 via-purple-950/25 to-zinc-950">
+      <section className="py-28 px-6 bg-gradient-to-br from-zinc-950 via-brand-950/25 to-zinc-950">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {STATS.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 80}>
                 <div>
-                  <div className="text-4xl sm:text-5xl font-black gradient-text mb-3">{stat.value}</div>
+                  <div className="text-4xl sm:text-5xl font-black gradient-text mb-3">
+                    {stat.value}
+                  </div>
                   <div className="text-zinc-500 text-sm font-medium">{stat.label}</div>
                 </div>
               </ScrollReveal>
@@ -269,11 +219,11 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-zinc-950 rounded-3xl p-14 text-center overflow-hidden">
               {/* Orbs inside card */}
-              <div className="absolute -top-10 -left-10 w-52 h-52 bg-purple-700/30 rounded-full blur-3xl animate-float pointer-events-none" />
+              <div className="absolute -top-10 -left-10 w-52 h-52 bg-brand-700/30 rounded-full blur-3xl animate-float pointer-events-none" />
               <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-indigo-700/25 rounded-full blur-3xl animate-float2 pointer-events-none" />
 
               <div className="relative z-10">
-                <span className="text-sm font-bold text-purple-400 uppercase tracking-[0.15em] mb-4 block">
+                <span className="text-sm font-bold text-brand-400 uppercase tracking-[0.15em] mb-4 block">
                   Parlons-en
                 </span>
                 <h2 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">

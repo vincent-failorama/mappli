@@ -14,7 +14,7 @@ export default function ScrollReveal({ children, delay = 0, className = '' }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     observer.observe(el);
     return () => observer.disconnect();

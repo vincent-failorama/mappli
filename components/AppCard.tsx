@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 const PLATFORM_COLORS = {
-  iOS:     'bg-zinc-100 text-zinc-600',
+  iOS: 'bg-zinc-100 text-zinc-600',
   Android: 'bg-emerald-50 text-emerald-700',
-  Web:     'bg-violet-50 text-violet-700',
+  Web: 'bg-violet-50 text-violet-700',
 };
 
 export default function AppCard({ icon, name, tagline, description, platforms = [], href }) {
@@ -15,8 +15,10 @@ export default function AppCard({ icon, name, tagline, description, platforms = 
                  transition-all duration-300"
     >
       {/* Hover gradient overlay */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-50/0 to-indigo-50/0
-                      group-hover:from-purple-50/60 group-hover:to-indigo-50/40 transition-all duration-300" />
+      <div
+        className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-50/0 to-indigo-50/0
+                      group-hover:from-purple-50/60 group-hover:to-indigo-50/40 transition-all duration-300"
+      />
 
       <div className="relative text-5xl">{icon}</div>
 
@@ -31,7 +33,7 @@ export default function AppCard({ icon, name, tagline, description, platforms = 
 
       <div className="relative flex items-center justify-between">
         <div className="flex gap-2 flex-wrap">
-          {platforms.map(p => (
+          {platforms.map((p) => (
             <span
               key={p}
               className={`text-xs font-semibold px-2.5 py-1 rounded-full ${PLATFORM_COLORS[p] ?? 'bg-zinc-100 text-zinc-600'}`}

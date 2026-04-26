@@ -18,7 +18,7 @@ const FEATURES = [
     icon: '📄',
     title: 'Rapports PDF automatiques',
     description:
-      'Génération instantanée de rapports de contrôle signés, archivés et téléchargeables depuis l\'app ou le dashboard web.',
+      "Génération instantanée de rapports de contrôle signés, archivés et téléchargeables depuis l'app ou le dashboard web.",
   },
   {
     icon: '⚠️',
@@ -30,13 +30,13 @@ const FEATURES = [
     icon: '🌐',
     title: 'Dashboard web multi-sites',
     description:
-      'Vue centralisée de tous vos sites, équipements et inspections. Statistiques de conformité, taux d\'anomalies, activité des inspecteurs.',
+      "Vue centralisée de tous vos sites, équipements et inspections. Statistiques de conformité, taux d'anomalies, activité des inspecteurs.",
   },
   {
     icon: '🔔',
     title: 'Notifications push & email',
     description:
-      'Alertes automatiques sur condamnation, mise sous surveillance ou détection d\'anomalie majeure. Zéro information manquée.',
+      "Alertes automatiques sur condamnation, mise sous surveillance ou détection d'anomalie majeure. Zéro information manquée.",
   },
   {
     icon: '👥',
@@ -47,12 +47,32 @@ const FEATURES = [
 ];
 
 const PLANS = [
-  { name: 'Liberté',      price: '30 € / équipement / an', desc: 'Petites communes & associations', highlight: false },
-  { name: 'Essentiel',    price: '490 € / an',              desc: '1 agent · 1 catégorie de patrimoine', highlight: false },
-  { name: 'Performance',  price: '1 200 € / an',            desc: '5 agents · 3 catégories',           highlight: true  },
-  { name: 'Pro',          price: '1 900 € / an',            desc: '15 agents · toutes catégories',      highlight: false },
-  { name: 'Expert',       price: '2 900 € / an',            desc: '30 agents · toutes catégories',      highlight: false },
-  { name: 'Territoire',   price: '4 800 € / an',            desc: 'Collectivités & grands comptes',     highlight: false },
+  {
+    name: 'Liberté',
+    price: '30 € / équipement / an',
+    desc: 'Petites communes & associations',
+    highlight: false,
+  },
+  {
+    name: 'Essentiel',
+    price: '490 € / an',
+    desc: '1 agent · 1 catégorie de patrimoine',
+    highlight: false,
+  },
+  { name: 'Performance', price: '1 200 € / an', desc: '5 agents · 3 catégories', highlight: true },
+  { name: 'Pro', price: '1 900 € / an', desc: '15 agents · toutes catégories', highlight: false },
+  {
+    name: 'Expert',
+    price: '2 900 € / an',
+    desc: '30 agents · toutes catégories',
+    highlight: false,
+  },
+  {
+    name: 'Territoire',
+    price: '4 800 € / an',
+    desc: 'Collectivités & grands comptes',
+    highlight: false,
+  },
 ];
 
 export default function SportsControlsPage() {
@@ -60,7 +80,10 @@ export default function SportsControlsPage() {
     <>
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 mb-10 transition-colors">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 mb-10 transition-colors"
+        >
           ← Retour aux apps
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -74,12 +97,15 @@ export default function SportsControlsPage() {
             </p>
             <p className="text-slate-600 leading-relaxed mb-8">
               Application métier complète pour les gestionnaires d'équipements sportifs :
-              inspections terrain, suivi des anomalies, rapports réglementaires et dashboard
-              de pilotage multi-sites — tout en un.
+              inspections terrain, suivi des anomalies, rapports réglementaires et dashboard de
+              pilotage multi-sites — tout en un.
             </p>
             <div className="flex gap-3 flex-wrap mb-6">
-              {['iOS', 'Android', 'Web'].map(p => (
-                <span key={p} className="bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1.5 rounded-full">
+              {['iOS', 'Android', 'Web'].map((p) => (
+                <span
+                  key={p}
+                  className="bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1.5 rounded-full"
+                >
                   {p}
                 </span>
               ))}
@@ -117,7 +143,9 @@ export default function SportsControlsPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-3">Fonctionnalités clés</h2>
-            <p className="text-slate-500">Tout ce dont vos équipes ont besoin sur le terrain et au bureau</p>
+            <p className="text-slate-500">
+              Tout ce dont vos équipes ont besoin sur le terrain et au bureau
+            </p>
           </div>
           <FeatureGrid features={FEATURES} />
         </div>
@@ -152,7 +180,7 @@ export default function SportsControlsPage() {
             <p className="text-slate-500">Essai gratuit 3 mois — sans engagement</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PLANS.map(plan => (
+            {PLANS.map((plan) => (
               <div
                 key={plan.name}
                 className={`rounded-2xl p-7 border transition-shadow hover:shadow-md ${
@@ -166,13 +194,19 @@ export default function SportsControlsPage() {
                     Populaire
                   </span>
                 )}
-                <h3 className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-slate-800'}`}>
+                <h3
+                  className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-slate-800'}`}
+                >
                   {plan.name}
                 </h3>
-                <p className={`text-sm mb-6 ${plan.highlight ? 'text-brand-100' : 'text-slate-500'}`}>
+                <p
+                  className={`text-sm mb-6 ${plan.highlight ? 'text-brand-100' : 'text-slate-500'}`}
+                >
                   {plan.desc}
                 </p>
-                <div className={`text-2xl font-extrabold mb-6 ${plan.highlight ? 'text-white' : 'text-slate-900'}`}>
+                <div
+                  className={`text-2xl font-extrabold mb-6 ${plan.highlight ? 'text-white' : 'text-slate-900'}`}
+                >
                   {plan.price}
                 </div>
                 <a
@@ -189,7 +223,11 @@ export default function SportsControlsPage() {
             ))}
           </div>
           <p className="text-center text-slate-400 text-sm mt-8">
-            Essai gratuit 3 mois · Option catégorie supplémentaire : +90 €/an (Liberté &amp; Essentiel) · <a href="mailto:contact@example.com" className="underline hover:text-slate-600">Demander un devis personnalisé</a>
+            Essai gratuit 3 mois · Option catégorie supplémentaire : +90 €/an (Liberté &amp;
+            Essentiel) ·{' '}
+            <a href="mailto:contact@example.com" className="underline hover:text-slate-600">
+              Demander un devis personnalisé
+            </a>
           </p>
         </div>
       </section>
