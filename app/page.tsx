@@ -1,5 +1,8 @@
 import AppCard from '../components/AppCard';
-import ScrollReveal from '../components/ScrollReveal';
+import ScrollReveal, { StaggerContainer } from '../components/ScrollReveal';
+import StatCounter from '../components/StatCounter';
+import SplitText from '../components/SplitText';
+import MagneticButton from '../components/MagneticButton';
 import { APPS, FEATURES, STEPS, STATS, STACK } from './data/homeData';
 
 export default function HomePage() {
@@ -29,11 +32,14 @@ export default function HomePage() {
             Sports Controls disponible sur l&apos;App Store & Play Store
           </div>
 
-          {/* Headline */}
-          <h1 className="hero-h1 text-5xl sm:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
-            Des apps pensées
+          {/* Headline — reveal mot par mot via SplitText */}
+          <h1 className="text-5xl sm:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
+            <SplitText text="Des apps pensées" delay={0.25} />
             <br />
-            pour <span className="gradient-text">les professionnels</span>
+            <span>pour </span>
+            <span className="gradient-text">
+              <SplitText text="les professionnels" delay={0.55} />
+            </span>
           </h1>
 
           {/* Subtext */}
@@ -42,15 +48,17 @@ export default function HomePage() {
             répondre aux besoins métier des équipes terrain.
           </p>
 
-          {/* CTAs */}
+          {/* CTAs — MagneticButton sur le CTA principal */}
           <div className="hero-cta flex gap-4 justify-center flex-wrap">
-            <a
-              href="#apps"
-              className="btn-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-bold text-lg group"
-            >
-              Voir nos apps
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+            <MagneticButton>
+              <a
+                href="#apps"
+                className="btn-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-bold text-lg group"
+              >
+                Voir nos apps
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </MagneticButton>
             <a
               href="mailto:contact@mappli.fr"
               className="bg-white/5 border border-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
@@ -98,15 +106,17 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {FEATURES.map((f, i) => (
-              <ScrollReveal key={f.title} delay={i * 100}>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {FEATURES.map((f) => (
+              <ScrollReveal key={f.title}>
                 <div
                   className="group p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
                                 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 hover:border-white/20 hover:bg-white/[0.08]
-                                transition-all duration-300 h-full"
+                                transition-all duration-300 h-full flex flex-col"
                 >
-                  <div className="text-4xl mb-6">{f.icon}</div>
+                  <div className="text-4xl mb-6">
+                    {f.icon && <f.icon className="inline-block" />}
+                  </div>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
                     {f.title}
                   </h3>
@@ -114,7 +124,7 @@ export default function HomePage() {
                 </div>
               </ScrollReveal>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -135,22 +145,25 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {APPS.map((app, i) => (
-              <ScrollReveal key={app.name} delay={i * 100}>
-                <AppCard {...app} />
-              </ScrollReveal>
-            ))}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {APPS.map((app) => {
+              const { icon: Icon, ...rest } = app;
+              return (
+                <ScrollReveal key={app.name}>
+                  <AppCard {...rest} iconEl={<Icon className="inline-block" />} />
+                </ScrollReveal>
+              );
+            })}
 
             {/* Coming soon placeholder */}
-            <ScrollReveal delay={100}>
+            <ScrollReveal>
               <div className="border-2 border-dashed border-white/20 rounded-2xl p-7 flex flex-col items-center justify-center gap-3 text-center min-h-[280px] bg-white/[0.02]">
                 <span className="text-4xl">✨</span>
                 <p className="font-bold text-zinc-400">Prochaine app</p>
                 <p className="text-zinc-500 text-sm">En développement</p>
               </div>
             </ScrollReveal>
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -198,18 +211,13 @@ export default function HomePage() {
       {/* ─────────────────────────── STATS ─────────────────────────── */}
       <section className="py-28 px-6 bg-gradient-to-br from-[#020617] via-violet-900/15 to-[#020617]">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-            {STATS.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={i * 80}>
-                <div>
-                  <div className="text-4xl sm:text-5xl font-black gradient-text mb-3">
-                    {stat.value}
-                  </div>
-                  <div className="text-zinc-400 text-sm font-medium">{stat.label}</div>
-                </div>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            {STATS.map((stat) => (
+              <ScrollReveal key={stat.label}>
+                <StatCounter value={stat.value} label={stat.label} />
               </ScrollReveal>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -232,13 +240,15 @@ export default function HomePage() {
                 <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
                   Décrivez-nous votre besoin, nous vous répondons sous 24 h.
                 </p>
-                <a
-                  href="mailto:contact@mappli.fr"
-                  className="btn-primary inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-xl text-lg group"
-                >
-                  Envoyer un message
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </a>
+                <MagneticButton>
+                  <a
+                    href="mailto:contact@mappli.fr"
+                    className="btn-primary inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-xl text-lg group"
+                  >
+                    Envoyer un message
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+                </MagneticButton>
               </div>
             </div>
           </div>

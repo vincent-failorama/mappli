@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Curseur natif masqué sur desktop uniquement (le custom cursor prend le relais) */
+@media (hover: hover) and (pointer: fine) {
+  html { cursor: none; }
+  input, textarea, select { cursor: text; }
+}
+
 /* ── BLOBS ── */
 .blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .blob { position: absolute; border-radius: 50%; filter: blur(100px); }

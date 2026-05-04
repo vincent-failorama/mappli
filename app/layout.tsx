@@ -1,7 +1,12 @@
 import { Montserrat } from 'next/font/google';
+import dynamic from 'next/dynamic';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
+// Chargés uniquement côté client (window / document requis)
+const CustomCursor = dynamic(() => import('../components/CustomCursor'), { ssr: false });
+const BlobParallax = dynamic(() => import('../components/BlobParallax'), { ssr: false });
 
 import type { Metadata } from 'next';
 
@@ -73,6 +78,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="blob b3" />
         </div>
         <div className="noise" />
+        <BlobParallax />
+        <CustomCursor />
         <Navbar />
         <main className="relative z-[2] pt-16">{children}</main>
         <Footer />

@@ -15,20 +15,20 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center bg-white px-6 text-center">
+    <div className="min-h-[70vh] flex flex-col items-center justify-center bg-slate-950 px-6 text-center">
       <div className="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-4xl mb-8">
         ⚠️
       </div>
-      <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 mb-4">
+      <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
         Oups, un problème est survenu
       </h2>
-      <p className="text-zinc-500 text-lg max-w-lg mb-10">
+      <p className="text-slate-400 text-lg max-w-lg mb-10">
         Nous n&apos;avons pas pu charger cette page. Il peut s&apos;agir d&apos;une erreur de réseau
         ou d&apos;un problème temporaire sur nos serveurs.
       </p>
       <button
         onClick={() => reset()}
-        className="bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-600 transition-colors"
+        className="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-brand-400 transition-colors"
       >
         Réessayer
       </button>

@@ -1,32 +1,66 @@
 'use client';
-import { useEffect, useRef } from 'react';
 
-export default function ScrollReveal({ children, delay = 0, className = '' }) {
-  const ref = useRef(null);
+import { motion, Variants } from 'framer-motion';
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('visible');
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (delayMs: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      delay: delayMs / 1000,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
 
+const staggerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+export function StaggerContainer({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div
-      ref={ref}
-      className={`reveal ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-8% 0px' }}
+      variants={staggerVariants}
     >
       {children}
-    </div>
+    </motion.div>
+  );
+}
+
+export default function ScrollReveal({
+  children,
+  delay = 0,
+  className = '',
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-8% 0px' }}
+      variants={itemVariants}
+      custom={delay}
+    >
+      {children}
+    </motion.div>
   );
 }

@@ -1,51 +1,127 @@
-import Link from 'next/link';
+'use client';
 
-const PLATFORM_COLORS = {
+import Link from 'next/link';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
+
+const PLATFORM_COLORS: Record<string, string> = {
   iOS: 'bg-white/10 text-zinc-300',
   Android: 'bg-emerald-500/10 text-emerald-400',
   Web: 'bg-violet-500/10 text-violet-400',
 };
 
-export default function AppCard({ icon, name, tagline, description, platforms = [], href }) {
+interface AppCardProps {
+  /** Icône pré-rendue côté serveur — évite le passage d'une fonction RSC→Client */
+  iconEl: React.ReactNode;
+  name: string;
+  tagline: string;
+  description: string;
+  platforms?: string[];
+  href: string;
+}
+
+function useCardTilt() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), {
+    stiffness: 150, damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), {
+    stiffness: 150, damping: 20,
+  });
+  const glareX = useSpring(useTransform(mouseX, [-0.5, 0.5], [0, 100]), {
+    stiffness: 150, damping: 20,
+  });
+  const glareY = useSpring(useTransform(mouseY, [-0.5, 0.5], [0, 100]), {
+    stiffness: 150, damping: 20,
+  });
+
+  return { mouseX, mouseY, rotateX, rotateY, glareX, glareY };
+}
+
+function GlareOverlay({ glareX, glareY }: { glareX: MotionValue<number>; glareY: MotionValue<number> }) {
+  const background = useTransform(
+    [glareX, glareY] as MotionValue[],
+    ([x, y]: number[]) =>
+      `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.10) 0%, transparent 60%)`,
+  );
+
   return (
-    <Link
-      href={href}
-      className="group relative bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-2xl p-7 flex flex-col gap-4 overflow-hidden
-                 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 hover:border-white/25 hover:bg-white/[0.08]
-                 transition-all duration-300"
+    <motion.div
+      className="absolute inset-0 rounded-2xl pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      style={{ background }}
+    />
+  );
+}
+
+export default function AppCard({ iconEl, name, tagline, description, platforms = [], href }: AppCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { mouseX, mouseY, rotateX, rotateY, glareX, glareY } = useCardTilt();
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ perspective: 800 }}
     >
-      {/* Hover gradient overlay */}
-      <div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/0 to-violet-500/0
-                      group-hover:from-sky-500/8 group-hover:to-violet-500/6 transition-all duration-300"
-      />
+      <motion.div
+        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        className="group relative bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-2xl overflow-hidden
+                   hover:border-white/25 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-violet-500/20
+                   transition-colors duration-300 h-full"
+      >
+        {/* Glare overlay suit le curseur */}
+        <GlareOverlay glareX={glareX} glareY={glareY} />
 
-      <div className="relative text-5xl">{icon}</div>
+        {/* Gradient hover de fond */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/0 to-violet-500/0
+                        group-hover:from-sky-500/8 group-hover:to-violet-500/6 transition-all duration-300" />
 
-      <div className="relative">
-        <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
-          {name}
-        </h3>
-        <p className="text-zinc-400 text-sm mt-1 font-medium">{tagline}</p>
-      </div>
+        <Link href={href} className="relative z-20 p-7 flex flex-col gap-4 h-full">
+          <div className="text-5xl">
+            {iconEl}
+          </div>
 
-      <p className="relative text-zinc-300 text-sm leading-relaxed flex-1">{description}</p>
+          <div>
+            <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+              {name}
+            </h3>
+            <p className="text-zinc-400 text-sm mt-1 font-medium">{tagline}</p>
+          </div>
 
-      <div className="relative flex items-center justify-between">
-        <div className="flex gap-2 flex-wrap">
-          {platforms.map((p) => (
-            <span
-              key={p}
-              className={`text-xs font-semibold px-2.5 py-1 rounded-full ${PLATFORM_COLORS[p] ?? 'bg-white/10 text-zinc-300'}`}
-            >
-              {p}
+          <p className="text-zinc-300 text-sm leading-relaxed flex-1">{description}</p>
+
+          <div className="flex items-center justify-between">
+            <div className="flex gap-2 flex-wrap">
+              {platforms.map((p) => (
+                <span
+                  key={p}
+                  className={`text-xs font-semibold px-2.5 py-1 rounded-full ${PLATFORM_COLORS[p] ?? 'bg-white/10 text-zinc-300'}`}
+                >
+                  {p}
+                </span>
+              ))}
+            </div>
+            <span className="text-sky-400 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1.5 transition-transform">
+              Découvrir →
             </span>
-          ))}
-        </div>
-        <span className="text-sky-400 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1.5 transition-transform">
-          Découvrir →
-        </span>
-      </div>
-    </Link>
+          </div>
+        </Link>
+      </motion.div>
+    </div>
   );
 }

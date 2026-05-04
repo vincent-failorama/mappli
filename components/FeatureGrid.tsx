@@ -1,13 +1,25 @@
-export default function FeatureGrid({ features }) {
+import React from 'react';
+
+interface Feature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+interface FeatureGridProps {
+  features: Feature[];
+}
+
+export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {features.map((f, i) => (
-        <div key={i} className="bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm rounded-xl p-6 flex gap-4">
-          <div className="text-3xl shrink-0">{f.icon}</div>
-          <div>
-            <h3 className="font-semibold text-white mb-1">{f.title}</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">{f.description}</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div key={index} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+          <div className="text-4xl text-brand-600 mb-4">
+            {feature.icon && <feature.icon className="inline-block" />}
           </div>
+          <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
+          <p className="text-slate-600">{feature.description}</p>
         </div>
       ))}
     </div>

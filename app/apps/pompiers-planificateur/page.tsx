@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FeatureGrid from '../../../components/FeatureGrid';
+import { FaAmbulance, FaUsers, FaCalendarAlt, FaCog, FaFilePdf, FaLock } from 'react-icons/fa';
 
 export const metadata = {
   title: 'Planificateur de Garde — Sapeurs-Pompiers',
@@ -9,37 +10,37 @@ export const metadata = {
 
 const FEATURES = [
   {
-    icon: '👥',
+    icon: FaUsers, // Icône de groupe d'utilisateurs
     title: 'Gestion du personnel',
     description:
       'Gestion complète des agents, avec attribution des grades (Sapeur à Commandant) et de plus de 23 types de qualifications (CA_TE, COD3, SUAP, INC, etc.).',
   },
   {
-    icon: '🚒',
+    icon: FaAmbulance, // Icône d'ambulance
     title: 'Configuration des engins',
     description:
       "Définition personnalisée des engins (VSAV, FPT, VTU, etc.) et configuration des postes (chef d'agrès, conducteur, équipiers) avec leurs qualifications requises.",
   },
   {
-    icon: '📅',
+    icon: FaCalendarAlt, // Icône de calendrier
     title: 'Grille horaire flexible',
     description:
       'Sélection intuitive des créneaux de garde sur un calendrier, avec support des périodes de 12 heures (jour/nuit) et des cycles multi-semaines.',
   },
   {
-    icon: '⚙️',
+    icon: FaCog, // Icône d'engrenage
     title: 'Moteur algorithmique',
     description:
       "Affectation automatique respectant la priorité des engins, l'exclusivité VSAV, le multi-armement, la hiérarchie des grades et l'équité historique.",
   },
   {
-    icon: '📄',
+    icon: FaFilePdf, // Icône de fichier PDF
     title: 'Export PDF professionnel',
     description:
       'Génération de plannings clairs avec deux mises en page (par engin ou par jour). En-tête personnalisé avec le nom du chef de garde et les dates.',
   },
   {
-    icon: '🔒',
+    icon: FaLock, // Icône de cadenas
     title: '100% Local & Sécurisé',
     description:
       "Fonctionnement sans serveur. Données stockées localement sur l'appareil. Possibilité de synchronisation via Google Drive sur la version bureau.",
@@ -53,18 +54,20 @@ export default function PompiersPlanificateurPage() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 mb-10 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-brand-400 mb-10 transition-colors"
         >
           ← Retour aux apps
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="text-6xl mb-6">🚒</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+            <div className="text-6xl mb-6">
+              <FaAmbulance className="inline-block" /> {/* Rendu de l'icône */}
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
               Planificateur de Garde
             </h1>
-            <p className="text-xl text-slate-500 mb-6 font-medium">Sapeurs-Pompiers</p>
-            <p className="text-slate-600 leading-relaxed mb-8">
+            <p className="text-xl text-slate-400 mb-6 font-medium">Sapeurs-Pompiers</p>
+            <p className="text-slate-300 leading-relaxed mb-8">
               Générez automatiquement le planning d'affectation de votre personnel sur les engins.
               Notre algorithme prend en compte les qualifications, la hiérarchie des grades et
               l'équité pour vous faire gagner un temps précieux à chaque prise de garde.
@@ -90,7 +93,7 @@ export default function PompiersPlanificateurPage() {
           </div>
 
           {/* Placeholder screenshot */}
-          <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl aspect-video flex items-center justify-center border border-red-200">
+          <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 backdrop-blur-md rounded-2xl aspect-video flex items-center justify-center border border-white/10 shadow-2xl">
             <div className="text-center text-red-300">
               <div className="text-6xl mb-3">💻</div>
               <p className="text-sm font-medium">Aperçu du logiciel</p>
@@ -100,13 +103,14 @@ export default function PompiersPlanificateurPage() {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-xl border-y border-white/5" />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">
+            <h2 className="text-3xl font-bold text-white mb-3">
               Fonctionnalités du Planificateur
             </h2>
-            <p className="text-slate-500">
+            <p className="text-slate-400">
               Conçu spécifiquement pour les contraintes opérationnelles des centres de secours
             </p>
           </div>
@@ -115,18 +119,18 @@ export default function PompiersPlanificateurPage() {
       </section>
 
       {/* Détails Techniques */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+          <h2 className="text-3xl font-bold text-white mb-10 text-center">
             Au cœur du moteur de planification
           </h2>
 
           <div className="space-y-8">
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Règles d'affectation strictes
               </h3>
-              <ul className="list-disc list-inside text-slate-600 space-y-2 ml-4">
+              <ul className="list-disc list-inside text-slate-300 space-y-2 ml-4">
                 <li>
                   <strong>Hiérarchie des qualifications :</strong> Une qualification supérieure (ex:
                   CA_TE) couvre automatiquement les besoins inférieurs (ex: CA_VSAV).
@@ -147,11 +151,11 @@ export default function PompiersPlanificateurPage() {
               </ul>
             </div>
 
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Architecture & Stack Technique
               </h3>
-              <p className="text-slate-600 mb-4">
+              <p className="text-slate-300 mb-4">
                 Développé par Vincent Morvezen, l'application s'appuie sur une stack moderne et
                 performante :
               </p>
@@ -169,7 +173,7 @@ export default function PompiersPlanificateurPage() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="bg-white border border-slate-200 text-slate-600 text-xs font-semibold px-3 py-1 rounded-md"
+                    className="bg-white/10 border border-white/10 text-slate-200 text-xs font-semibold px-3 py-1 rounded-md"
                   >
                     {tech}
                   </span>
@@ -182,8 +186,8 @@ export default function PompiersPlanificateurPage() {
 
       {/* CTA final */}
       <section className="max-w-3xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-4">Simplifiez vos prises de garde</h2>
-        <p className="text-slate-500 mb-8 text-lg">
+        <h2 className="text-3xl font-bold text-white mb-4">Simplifiez vos prises de garde</h2>
+        <p className="text-slate-400 mb-8 text-lg">
           Fini les casse-têtes sur tableau blanc. Générez, ajustez et imprimez vos plannings en
           quelques clics.
         </p>

@@ -1,6 +1,9 @@
+// Import icons from react-icons/fa
+import { FaBuilding, FaFutbol, FaAmbulance, FaMobileAlt, FaCloud, FaBullseye } from 'react-icons/fa';
+
 export const APPS = [
   {
-    icon: '🏛️',
+    icon: FaBuilding, // Icône de bâtiment pour Signalis
     name: 'Signalis',
     tagline: 'Gestion des signalements communaux',
     description:
@@ -9,7 +12,7 @@ export const APPS = [
     href: '/apps/signalis',
   },
   {
-    icon: '🏟️',
+    icon: FaFutbol, // Icône de ballon de football pour Sports Controls
     name: 'Sports Controls',
     tagline: 'Contrôle des équipements sportifs',
     description:
@@ -18,7 +21,7 @@ export const APPS = [
     href: '/apps/sports-controls',
   },
   {
-    icon: '🚒',
+    icon: FaAmbulance, // Icône d'ambulance pour Planificateur de Garde
     name: 'Planificateur de Garde',
     tagline: 'Sapeurs-Pompiers',
     description:
@@ -30,17 +33,17 @@ export const APPS = [
 
 export const FEATURES = [
   {
-    icon: '📱',
+    icon: FaMobileAlt, // Icône de téléphone mobile
     title: 'Mobile-first',
     desc: 'iOS & Android natif ou React Native, pensé pour le terrain. Interface optimisée pour les agents, pas pour les développeurs.',
   },
   {
-    icon: '☁️',
+    icon: FaCloud, // Icône de nuage
     title: 'Cloud & temps réel',
     desc: 'Données synchronisées instantanément, accessibles partout. Infrastructure scalable, sécurisée et haute disponibilité.',
   },
   {
-    icon: '🎯',
+    icon: FaBullseye, // Icône de cible
     title: 'Sur mesure',
     desc: 'Chaque app répond à un besoin métier précis. Pas de fonctionnalités inutiles, juste ce qui compte pour vos équipes.',
   },

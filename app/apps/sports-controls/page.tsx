@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FeatureGrid from '../../../components/FeatureGrid';
+import { FaFutbol, FaSearch, FaFilePdf, FaExclamationTriangle, FaGlobe, FaBell, FaUsers } from 'react-icons/fa';
 
 export const metadata = {
   title: 'Sports Controls — Contrôle des équipements sportifs',
@@ -9,37 +10,37 @@ export const metadata = {
 
 const FEATURES = [
   {
-    icon: '🔍',
+    icon: FaSearch, // Icône de loupe
     title: 'Inspections terrain guidées',
     description:
       'Checklist interactive sur iOS & Android. Chaque point de contrôle peut être annoté, photographié et qualifié par gravité.',
   },
   {
-    icon: '📄',
+    icon: FaFilePdf, // Icône de fichier PDF
     title: 'Rapports PDF automatiques',
     description:
       "Génération instantanée de rapports de contrôle signés, archivés et téléchargeables depuis l'app ou le dashboard web.",
   },
   {
-    icon: '⚠️',
+    icon: FaExclamationTriangle, // Icône d'avertissement
     title: 'Suivi des anomalies',
     description:
       'Les anomalies détectées sont tracées en temps réel. Cycle de vie complet : ouverture, suivi, résolution avec délai mesuré.',
   },
   {
-    icon: '🌐',
+    icon: FaGlobe, // Icône de globe
     title: 'Dashboard web multi-sites',
     description:
       "Vue centralisée de tous vos sites, équipements et inspections. Statistiques de conformité, taux d'anomalies, activité des inspecteurs.",
   },
   {
-    icon: '🔔',
+    icon: FaBell, // Icône de cloche
     title: 'Notifications push & email',
     description:
       "Alertes automatiques sur condamnation, mise sous surveillance ou détection d'anomalie majeure. Zéro information manquée.",
   },
   {
-    icon: '👥',
+    icon: FaUsers, // Icône de groupe d'utilisateurs
     title: 'Gestion des rôles',
     description:
       'Admins, responsables, agents, lecteurs — chaque utilisateur accède uniquement à ce dont il a besoin.',
@@ -82,20 +83,22 @@ export default function SportsControlsPage() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-600 mb-10 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-brand-400 mb-10 transition-colors"
         >
           ← Retour aux apps
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="text-6xl mb-6">🏟️</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+            <div className="text-6xl mb-6">
+              <FaFutbol className="inline-block" /> {/* Rendu de l'icône */}
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
               Sports Controls
             </h1>
-            <p className="text-xl text-slate-500 mb-6 font-medium">
+            <p className="text-xl text-slate-400 mb-6 font-medium">
               Contrôle des équipements sportifs
             </p>
-            <p className="text-slate-600 leading-relaxed mb-8">
+            <p className="text-slate-300 leading-relaxed mb-8">
               Application métier complète pour les gestionnaires d'équipements sportifs :
               inspections terrain, suivi des anomalies, rapports réglementaires et dashboard de
               pilotage multi-sites — tout en un.
@@ -129,7 +132,7 @@ export default function SportsControlsPage() {
           </div>
 
           {/* Placeholder screenshot */}
-          <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl aspect-video flex items-center justify-center border border-brand-200">
+          <div className="bg-gradient-to-br from-brand-500/10 to-brand-600/10 backdrop-blur-md rounded-2xl aspect-video flex items-center justify-center border border-white/10 shadow-2xl">
             <div className="text-center text-brand-300">
               <div className="text-6xl mb-3">📱</div>
               <p className="text-sm font-medium">Screenshots à venir</p>
@@ -139,11 +142,12 @@ export default function SportsControlsPage() {
       </section>
 
       {/* Features */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-xl border-y border-white/5" />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">Fonctionnalités clés</h2>
-            <p className="text-slate-500">
+            <h2 className="text-3xl font-bold text-white mb-3">Fonctionnalités clés</h2>
+            <p className="text-slate-400">
               Tout ce dont vos équipes ont besoin sur le terrain et au bureau
             </p>
           </div>
@@ -153,12 +157,12 @@ export default function SportsControlsPage() {
 
       {/* Screenshots placeholder */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">Captures d'écran</h2>
+        <h2 className="text-3xl font-bold text-white mb-10 text-center">Captures d'écran</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="bg-slate-100 rounded-xl aspect-[9/16] flex items-center justify-center text-slate-300 border border-slate-200"
+              className="bg-white/5 backdrop-blur-md rounded-xl aspect-[9/16] flex items-center justify-center text-slate-300 border border-white/10"
             >
               <div className="text-center">
                 <div className="text-4xl mb-2">📷</div>
@@ -173,20 +177,21 @@ export default function SportsControlsPage() {
       </section>
 
       {/* Tarifs */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-xl border-y border-white/5" />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">Plans tarifaires</h2>
-            <p className="text-slate-500">Essai gratuit 3 mois — sans engagement</p>
+            <h2 className="text-3xl font-bold text-white mb-3">Plans tarifaires</h2>
+            <p className="text-slate-400">Essai gratuit 3 mois — sans engagement</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PLANS.map((plan) => (
               <div
                 key={plan.name}
-                className={`rounded-2xl p-7 border transition-shadow hover:shadow-md ${
+                className={`rounded-3xl p-7 border transition-all hover:scale-[1.02] ${
                   plan.highlight
-                    ? 'bg-brand-600 border-brand-600 text-white'
-                    : 'bg-white border-slate-200 text-slate-800'
+                    ? 'bg-brand-600 border-brand-400 text-white shadow-xl shadow-brand-500/20'
+                    : 'bg-white/5 backdrop-blur-md border-white/10 text-white'
                 }`}
               >
                 {plan.highlight && (
@@ -195,12 +200,12 @@ export default function SportsControlsPage() {
                   </span>
                 )}
                 <h3
-                  className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-slate-800'}`}
+                  className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-white'}`}
                 >
                   {plan.name}
                 </h3>
                 <p
-                  className={`text-sm mb-6 ${plan.highlight ? 'text-brand-100' : 'text-slate-500'}`}
+                  className={`text-sm mb-6 ${plan.highlight ? 'text-brand-100' : 'text-slate-400'}`}
                 >
                   {plan.desc}
                 </p>
@@ -214,7 +219,7 @@ export default function SportsControlsPage() {
                   className={`block text-center py-2.5 rounded-xl font-semibold text-sm transition-colors ${
                     plan.highlight
                       ? 'bg-white text-brand-700 hover:bg-brand-50'
-                      : 'border border-slate-200 text-slate-700 hover:bg-slate-50'
+                      : 'border border-white/20 text-white hover:bg-white/10'
                   }`}
                 >
                   Nous contacter
@@ -234,8 +239,8 @@ export default function SportsControlsPage() {
 
       {/* CTA final */}
       <section className="max-w-3xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-4">Prêt à démarrer ?</h2>
-        <p className="text-slate-500 mb-8 text-lg">
+        <h2 className="text-3xl font-bold text-white mb-4">Prêt à démarrer ?</h2>
+        <p className="text-slate-400 mb-8 text-lg">
           Demandez votre accès d'essai gratuit — configuration en moins de 10 minutes.
         </p>
         <a
