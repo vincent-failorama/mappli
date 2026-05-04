@@ -8,6 +8,10 @@ const PLATFORM_COLORS: Record<string, string> = {
   iOS: 'bg-white/10 text-zinc-300',
   Android: 'bg-emerald-500/10 text-emerald-400',
   Web: 'bg-violet-500/10 text-violet-400',
+  Windows: 'bg-sky-500/10 text-sky-400',
+  Mobile: 'bg-emerald-500/10 text-emerald-400',
+  SaaS: 'bg-violet-500/10 text-violet-400',
+  'iOS bientôt': 'bg-white/5 text-zinc-500',
 };
 
 interface AppCardProps {

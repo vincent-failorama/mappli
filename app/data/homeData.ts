@@ -17,7 +17,7 @@ export const APPS = [
     tagline: 'Contrôle des équipements sportifs',
     description:
       'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs. Rapports PDF automatiques, suivi des anomalies en temps réel, multi-sites.',
-    platforms: ['iOS', 'Android', 'Web'],
+    platforms: ['Android', 'Web', 'iOS bientôt'],
     href: '/apps/sports-controls',
   },
   {
@@ -26,7 +26,7 @@ export const APPS = [
     tagline: 'Assistant opérationnel pour secouristes',
     description:
       'Application mobile hors-ligne pour pompiers, ambulanciers et secouristes. Bilan victimes, constantes, urgences vitales (ACR, hémorragie), export PDF SAMU et bases médicales de référence.',
-    platforms: ['iOS', 'Android'],
+    platforms: ['Android', 'iOS bientôt'],
     href: '/apps/bilan-secouriste',
   },
   {

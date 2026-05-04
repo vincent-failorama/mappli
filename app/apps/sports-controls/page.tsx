@@ -114,7 +114,7 @@ export default function SportsControlsPage() {
               pilotage multi-sites — tout en un.
             </p>
             <div className="flex gap-3 flex-wrap mb-6">
-              {['iOS', 'Android', 'Web'].map((p) => (
+              {['Android', 'Web', 'iOS bientôt'].map((p) => (
                 <span
                   key={p}
                   className="bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1.5 rounded-full"

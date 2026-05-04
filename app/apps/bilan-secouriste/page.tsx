@@ -87,7 +87,7 @@ export default function BilanSecouristePage() {
               de référence — entièrement hors-ligne.
             </p>
             <div className="flex gap-3 flex-wrap mb-6">
-              {['iOS', 'Android'].map((p) => (
+              {['Android', 'iOS bientôt'].map((p) => (
                 <span
                   key={p}
                   className="bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1.5 rounded-full"
