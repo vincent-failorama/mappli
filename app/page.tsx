@@ -6,10 +6,10 @@ export default function HomePage() {
   return (
     <>
       {/* ─────────────────────────── HERO ─────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Floating orbs */}
-        <div className="absolute -top-20 -left-32 w-[600px] h-[600px] bg-brand-700/20 rounded-full blur-3xl animate-float pointer-events-none" />
-        <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-indigo-700/18 rounded-full blur-3xl animate-float2 pointer-events-none" />
+        <div className="absolute -top-20 -left-32 w-[600px] h-[600px] bg-sky-500/15 rounded-full blur-3xl animate-float pointer-events-none" />
+        <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-violet-600/15 rounded-full blur-3xl animate-float2 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-800/12 rounded-full blur-2xl animate-float3 pointer-events-none" />
 
         {/* Grid */}
@@ -67,11 +67,11 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── TECH MARQUEE ─────────────────────────── */}
-      <section className="bg-zinc-900 border-y border-white/5 py-5 overflow-hidden select-none">
+      <section className="bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.06] py-5 overflow-hidden select-none">
         <div className="flex items-center">
           <div className="animate-marquee flex items-center gap-16 whitespace-nowrap pr-16">
             {[...STACK, ...STACK].map((tech, i) => (
-              <span key={i} className="text-zinc-500 font-bold text-xs tracking-[0.15em] uppercase">
+              <span key={i} className="text-white/30 font-bold text-xs tracking-[0.15em] uppercase">
                 {tech}
               </span>
             ))}
@@ -80,19 +80,19 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── FEATURES ─────────────────────────── */}
-      <section className="bg-white py-28 px-6">
+      <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-sky-400 uppercase tracking-[0.15em] mb-4 block">
                 Notre approche
               </span>
-              <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
                 Tout ce qu&apos;il faut.
                 <br />
                 Rien de superflu.
               </h2>
-              <p className="text-zinc-500 text-lg max-w-xl mx-auto">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto">
                 Des apps qui fonctionnent vraiment, construites avec les bons outils.
               </p>
             </div>
@@ -102,15 +102,15 @@ export default function HomePage() {
             {FEATURES.map((f, i) => (
               <ScrollReveal key={f.title} delay={i * 100}>
                 <div
-                  className="group p-8 rounded-2xl border border-zinc-100 bg-white
-                                hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-50 hover:border-brand-100
+                  className="group p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
+                                hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 hover:border-white/20 hover:bg-white/[0.08]
                                 transition-all duration-300 h-full"
                 >
                   <div className="text-4xl mb-6">{f.icon}</div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-brand-700 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
                     {f.title}
                   </h3>
-                  <p className="text-zinc-500 leading-relaxed text-sm">{f.desc}</p>
+                  <p className="text-zinc-400 leading-relaxed text-sm">{f.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -119,17 +119,17 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── APPS ─────────────────────────── */}
-      <section id="apps" className="bg-zinc-50 py-28 px-6">
+      <section id="apps" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-sky-400 uppercase tracking-[0.15em] mb-4 block">
                 Nos applications
               </span>
-              <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
                 Des outils prêts à l&apos;emploi
               </h2>
-              <p className="text-zinc-500 text-lg max-w-xl mx-auto">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto">
                 Déployés en production, utilisés par des équipes terrain chaque jour.
               </p>
             </div>
@@ -144,10 +144,10 @@ export default function HomePage() {
 
             {/* Coming soon placeholder */}
             <ScrollReveal delay={100}>
-              <div className="border-2 border-dashed border-zinc-200 rounded-2xl p-7 flex flex-col items-center justify-center gap-3 text-center min-h-[280px] bg-white/50">
+              <div className="border-2 border-dashed border-white/20 rounded-2xl p-7 flex flex-col items-center justify-center gap-3 text-center min-h-[280px] bg-white/[0.02]">
                 <span className="text-4xl">✨</span>
                 <p className="font-bold text-zinc-400">Prochaine app</p>
-                <p className="text-zinc-300 text-sm">En développement</p>
+                <p className="text-zinc-500 text-sm">En développement</p>
               </div>
             </ScrollReveal>
           </div>
@@ -155,17 +155,17 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── HOW IT WORKS ─────────────────────────── */}
-      <section className="bg-white py-28 px-6">
+      <section className="py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-sm font-bold text-brand-600 uppercase tracking-[0.15em] mb-4 block">
+              <span className="text-sm font-bold text-sky-400 uppercase tracking-[0.15em] mb-4 block">
                 Process
               </span>
-              <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-5 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
                 Comment ça marche ?
               </h2>
-              <p className="text-zinc-500 text-lg">
+              <p className="text-zinc-400 text-lg">
                 De l&apos;idée à la mise en production en quelques semaines.
               </p>
             </div>
@@ -175,18 +175,18 @@ export default function HomePage() {
             {STEPS.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 120}>
                 <div
-                  className="group flex gap-6 p-8 rounded-2xl border border-zinc-100 bg-white
-                                hover:border-brand-100 hover:shadow-xl hover:shadow-brand-50/50
+                  className="group flex gap-6 p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
+                                hover:border-white/20 hover:shadow-xl hover:shadow-sky-500/10 hover:bg-white/[0.08]
                                 transition-all duration-300"
                 >
-                  <div className="text-6xl font-black text-zinc-100 group-hover:text-brand-100 transition-colors shrink-0 leading-none mt-1 select-none">
+                  <div className="text-6xl font-black text-white/10 group-hover:text-sky-500/30 transition-colors shrink-0 leading-none mt-1 select-none">
                     {step.number}
                   </div>
                   <div className="py-1">
-                    <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-brand-700 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-zinc-500 leading-relaxed">{step.desc}</p>
+                    <p className="text-zinc-400 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -196,7 +196,7 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── STATS ─────────────────────────── */}
-      <section className="py-28 px-6 bg-gradient-to-br from-zinc-950 via-brand-950/25 to-zinc-950">
+      <section className="py-28 px-6 bg-gradient-to-br from-[#020617] via-violet-900/15 to-[#020617]">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {STATS.map((stat, i) => (
@@ -205,7 +205,7 @@ export default function HomePage() {
                   <div className="text-4xl sm:text-5xl font-black gradient-text mb-3">
                     {stat.value}
                   </div>
-                  <div className="text-zinc-500 text-sm font-medium">{stat.label}</div>
+                  <div className="text-zinc-400 text-sm font-medium">{stat.label}</div>
                 </div>
               </ScrollReveal>
             ))}
@@ -214,16 +214,16 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────── CTA ─────────────────────────── */}
-      <section className="bg-white py-28 px-6">
+      <section className="py-28 px-6">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto">
-            <div className="relative bg-zinc-950 rounded-3xl p-14 text-center overflow-hidden">
+            <div className="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-3xl p-14 text-center overflow-hidden">
               {/* Orbs inside card */}
-              <div className="absolute -top-10 -left-10 w-52 h-52 bg-brand-700/30 rounded-full blur-3xl animate-float pointer-events-none" />
-              <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-indigo-700/25 rounded-full blur-3xl animate-float2 pointer-events-none" />
+              <div className="absolute -top-10 -left-10 w-52 h-52 bg-sky-500/20 rounded-full blur-3xl animate-float pointer-events-none" />
+              <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-violet-500/20 rounded-full blur-3xl animate-float2 pointer-events-none" />
 
               <div className="relative z-10">
-                <span className="text-sm font-bold text-brand-400 uppercase tracking-[0.15em] mb-4 block">
+                <span className="text-sm font-bold text-sky-400 uppercase tracking-[0.15em] mb-4 block">
                   Parlons-en
                 </span>
                 <h2 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">

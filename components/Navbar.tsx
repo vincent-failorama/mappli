@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-zinc-950/85 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07] bg-white/[0.03] backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-black text-white tracking-tight">
           MAPPLI
@@ -13,7 +13,7 @@ export default function Navbar() {
           </Link>
           <a
             href="mailto:contact@mappli.fr"
-            className="btn-primary text-white px-4 py-2 rounded-lg text-sm font-semibold"
+            className="btn-primary text-white px-4 py-2 rounded-xl text-sm font-semibold"
           >
             Contact
           </a>

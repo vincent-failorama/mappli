@@ -1,11 +1,11 @@
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', weight: ['400', '500', '600', '700', '800', '900'] });
 
 export const metadata: Metadata = {
   title: 'MAPPLI — Applications mobiles & web sur mesure',
@@ -65,10 +65,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={inter.className}>
-      <body className="bg-white text-zinc-800 antialiased">
+    <html lang="fr" className={montserrat.className}>
+      <body className="bg-[#020617] text-white antialiased">
+        <div className="blobs">
+          <div className="blob b1" />
+          <div className="blob b2" />
+          <div className="blob b3" />
+        </div>
+        <div className="noise" />
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="relative z-[2] pt-16">{children}</main>
         <Footer />
       </body>
     </html>
