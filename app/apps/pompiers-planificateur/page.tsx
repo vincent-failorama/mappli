@@ -94,7 +94,7 @@ export default function PompiersPlanificateurPage() {
             </div>
             <div className="flex gap-3 flex-wrap">
               <a
-                href="mailto:contact@mappli.fr?subject=Démo Planificateur Pompier"
+                href="/contact?sujet=D%C3%A9mo+Planificateur+Pompier"
                 className="btn-primary text-white px-6 py-3 rounded-xl font-semibold"
               >
                 Demander une démo →
@@ -202,7 +202,7 @@ export default function PompiersPlanificateurPage() {
           quelques clics.
         </p>
         <a
-          href="mailto:contact@mappli.fr?subject=Contact Planificateur Pompier"
+          href="/contact?sujet=Planificateur+Pompier"
           className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
         >
           Nous contacter pour ce projet →

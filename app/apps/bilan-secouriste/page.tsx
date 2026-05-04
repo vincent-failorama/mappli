@@ -98,7 +98,7 @@ export default function BilanSecouristePage() {
             </div>
             <div className="flex gap-3 flex-wrap">
               <a
-                href="mailto:contact@mappli.fr?subject=Bilan Secouriste"
+                href="/contact?sujet=Bilan+Secouriste"
                 className="btn-primary text-white px-6 py-3 rounded-xl font-semibold"
               >
                 Nous contacter →
@@ -229,7 +229,7 @@ export default function BilanSecouristePage() {
           Pour toute question sur l'application ou un projet similaire, contactez-nous.
         </p>
         <a
-          href="mailto:contact@mappli.fr?subject=Bilan Secouriste"
+          href="/contact?sujet=Bilan+Secouriste"
           className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
         >
           Nous contacter →

@@ -133,7 +133,7 @@ export default function SportsControlsPage() {
                 Accéder au dashboard →
               </a>
               <a
-                href="mailto:contact@mappli.fr"
+                href="/contact?sujet=Sports+Controls"
                 className="bg-white border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 transition-colors"
               >
                 Demander une démo
@@ -225,7 +225,7 @@ export default function SportsControlsPage() {
                   {plan.price}
                 </div>
                 <a
-                  href="mailto:contact@mappli.fr"
+                  href="/contact?sujet=Sports+Controls"
                   className={`block text-center py-2.5 rounded-xl font-semibold text-sm transition-colors ${
                     plan.highlight
                       ? 'bg-white text-brand-700 hover:bg-brand-50'
@@ -240,7 +240,7 @@ export default function SportsControlsPage() {
           <p className="text-center text-slate-400 text-sm mt-8">
             Essai gratuit 3 mois · Option catégorie supplémentaire : +90 €/an (Liberté &amp;
             Essentiel) ·{' '}
-            <a href="mailto:contact@mappli.fr" className="underline hover:text-slate-600">
+            <a href="/contact?sujet=Sports+Controls" className="underline hover:text-slate-600">
               Demander un devis personnalisé
             </a>
           </p>
@@ -254,7 +254,7 @@ export default function SportsControlsPage() {
           Demandez votre accès d'essai gratuit — configuration en moins de 10 minutes.
         </p>
         <a
-          href="mailto:contact@mappli.fr"
+          href="/contact?sujet=Sports+Controls"
           className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
         >
           Demander une démo →

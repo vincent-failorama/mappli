@@ -61,7 +61,7 @@ export default function HomePage() {
               </a>
             </MagneticButton>
             <a
-              href="mailto:contact@mappli.fr"
+              href="/contact"
               className="bg-white/5 border border-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors"
             >
               Nous contacter
@@ -243,7 +243,7 @@ export default function HomePage() {
                 </p>
                 <MagneticButton>
                   <a
-                    href="mailto:contact@mappli.fr"
+                    href="/contact"
                     className="btn-primary inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-xl text-lg group"
                   >
                     Envoyer un message

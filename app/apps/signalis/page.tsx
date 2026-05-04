@@ -102,7 +102,7 @@ export default function SignalisPage() {
                 Tester la démo →
               </a>
               <a
-                href="mailto:contact@mappli.fr?subject=Démo Signalis"
+                href="/contact?sujet=D%C3%A9mo+Signalis"
                 className="bg-slate-100 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:bg-slate-200 transition-colors"
               >
                 Demander un devis

@@ -37,12 +37,12 @@ export default function Navbar() {
             <Link href="/#apps" className="text-zinc-400 hover:text-white transition-colors">
               Nos apps
             </Link>
-            <a
-              href="mailto:contact@mappli.fr"
+            <Link
+              href="/contact"
               className="btn-primary text-white px-4 py-2 rounded-xl text-sm font-semibold"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -80,7 +80,7 @@ export default function Navbar() {
                 Nos apps
               </Link>
               <a
-                href="mailto:contact@mappli.fr"
+                href="/contact"
                 className="btn-primary text-white px-8 py-4 rounded-xl text-lg font-bold"
                 onClick={closeMenu}
               >
