@@ -94,11 +94,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-[#020617] text-white antialiased">
-        <div className="blobs">
-          <div className="blob b1" />
-          <div className="blob b2" />
-          <div className="blob b3" />
-        </div>
         <div className="noise" />
         <BlobParallax />
         <CustomCursor />

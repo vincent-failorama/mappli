@@ -240,9 +240,9 @@ export default function SportsControlsPage() {
           <p className="text-center text-slate-400 text-sm mt-8">
             Essai gratuit 3 mois · Option catégorie supplémentaire : +90 €/an (Liberté &amp;
             Essentiel) ·{' '}
-            <a href="/contact?sujet=Sports+Controls" className="underline hover:text-slate-600">
+            <Link href="/contact?sujet=Sports+Controls" className="underline hover:text-slate-300">
               Demander un devis personnalisé
-            </a>
+            </Link>
           </p>
         </div>
       </section>
