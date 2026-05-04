@@ -68,9 +68,31 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'MAPPLI',
+  url: 'https://mappli.fr',
+  logo: 'https://mappli.fr/og-image.jpg',
+  description:
+    'MAPPLI conçoit des applications mobiles et web sur mesure pour les professionnels et équipes terrain.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'contact@mappli.fr',
+    contactType: 'customer service',
+    availableLanguage: 'French',
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={montserrat.className}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="bg-[#020617] text-white antialiased">
         <div className="blobs">
           <div className="blob b1" />
@@ -80,8 +102,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="noise" />
         <BlobParallax />
         <CustomCursor />
+        <a href="#main-content" className="skip-link">
+          Aller au contenu principal
+        </a>
         <Navbar />
-        <main className="relative z-[2] pt-16">{children}</main>
+        <main id="main-content" className="relative z-[2] pt-16">{children}</main>
         <Footer />
       </body>
     </html>

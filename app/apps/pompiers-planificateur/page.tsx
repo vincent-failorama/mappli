@@ -6,6 +6,16 @@ export const metadata = {
   title: 'Planificateur de Garde — Sapeurs-Pompiers',
   description:
     'Application de génération de planning de garde pour brigades de sapeurs-pompiers. Moteur algorithmique, gestion des qualifications et exports PDF.',
+  keywords: [
+    'planning pompiers',
+    'planificateur garde sapeurs-pompiers',
+    'gestion planning centre secours',
+    'logiciel pompiers',
+    'affectation engins',
+    'planning automatique brigade',
+    'export PDF planning',
+    'qualifications sapeurs-pompiers',
+  ],
 };
 
 const FEATURES = [
@@ -85,7 +95,7 @@ export default function PompiersPlanificateurPage() {
             <div className="flex gap-3 flex-wrap">
               <a
                 href="mailto:contact@mappli.fr?subject=Démo Planificateur Pompier"
-                className="bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-brand-700 transition-colors"
+                className="btn-primary text-white px-6 py-3 rounded-xl font-semibold"
               >
                 Demander une démo →
               </a>
@@ -193,11 +203,38 @@ export default function PompiersPlanificateurPage() {
         </p>
         <a
           href="mailto:contact@mappli.fr?subject=Contact Planificateur Pompier"
-          className="inline-block bg-brand-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-brand-700 transition-colors text-lg shadow-lg shadow-brand-200"
+          className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
         >
           Nous contacter pour ce projet →
         </a>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'Planificateur de Garde',
+              description:
+                'Application de génération de planning de garde pour brigades de sapeurs-pompiers. Moteur algorithmique, gestion des qualifications et exports PDF.',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Windows, Web',
+              url: 'https://mappli.fr/apps/pompiers-planificateur',
+              author: { '@type': 'Organization', name: 'MAPPLI', url: 'https://mappli.fr' },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mappli.fr' },
+                { '@type': 'ListItem', position: 2, name: 'Planificateur de Garde' },
+              ],
+            },
+          ]),
+        }}
+      />
     </>
   );
 }

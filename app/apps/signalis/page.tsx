@@ -6,6 +6,16 @@ export const metadata = {
   title: 'Signalis — Gestion des signalements pour les communes',
   description:
     'Plateforme SaaS de gestion des signalements citoyens et interventions techniques pour les communes françaises.',
+  keywords: [
+    'gestion signalements communes',
+    'plateforme SaaS collectivités',
+    'signalements citoyens',
+    'interventions techniques mairie',
+    'GMAO commune',
+    'application mairie',
+    'gestion astreintes',
+    'suivi interventions terrain',
+  ],
 };
 
 const FEATURES = [
@@ -87,7 +97,7 @@ export default function SignalisPage() {
                 href="https://signalis-mu.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-brand-700 transition-colors"
+                className="btn-primary text-white px-6 py-3 rounded-xl font-semibold"
               >
                 Tester la démo →
               </a>
@@ -211,12 +221,39 @@ export default function SignalisPage() {
             href="https://signalis-mu.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-brand-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-brand-700 transition-colors text-lg shadow-lg shadow-brand-200"
+            className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
             >
             Découvrir la démo publique →
             </a>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'Signalis',
+              description:
+                'Plateforme SaaS de gestion des signalements citoyens et interventions techniques pour les communes françaises.',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Web, Mobile',
+              url: 'https://mappli.fr/apps/signalis',
+              author: { '@type': 'Organization', name: 'MAPPLI', url: 'https://mappli.fr' },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mappli.fr' },
+                { '@type': 'ListItem', position: 2, name: 'Signalis' },
+              ],
+            },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -1,43 +1,95 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (y) => {
     setScrolled(y > 80);
   });
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07]"
-      animate={{
-        height: scrolled ? 52 : 64,
-        backgroundColor: scrolled ? 'rgba(2,6,23,0.88)' : 'rgba(255,255,255,0.03)',
-        backdropFilter: scrolled ? 'blur(24px)' : 'blur(12px)',
-      }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
-        <Link href="/" className="text-xl font-black text-white tracking-tight">
-          MAPPLI
-        </Link>
-        <nav className="flex items-center gap-6 text-sm font-medium">
-          <Link href="/#apps" className="text-zinc-400 hover:text-white transition-colors">
-            Nos apps
+    <>
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07]"
+        animate={{
+          height: scrolled ? 52 : 64,
+          backgroundColor: scrolled ? 'rgba(2,6,23,0.88)' : 'rgba(255,255,255,0.03)',
+          backdropFilter: scrolled ? 'blur(24px)' : 'blur(12px)',
+        }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+      >
+        <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
+          <Link href="/" className="text-xl font-black text-white tracking-tight">
+            MAPPLI
           </Link>
-          <a
-            href="mailto:contact@mappli.fr"
-            className="btn-primary text-white px-4 py-2 rounded-xl text-sm font-semibold"
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <Link href="/#apps" className="text-zinc-400 hover:text-white transition-colors">
+              Nos apps
+            </Link>
+            <a
+              href="mailto:contact@mappli.fr"
+              className="btn-primary text-white px-4 py-2 rounded-xl text-sm font-semibold"
+            >
+              Contact
+            </a>
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
-            Contact
-          </a>
-        </nav>
-      </div>
-    </motion.header>
+            {menuOpen ? <FaTimes size={20} aria-hidden="true" /> : <FaBars size={20} aria-hidden="true" />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-label="Menu principal"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed inset-0 z-40 bg-[#020617]/96 backdrop-blur-xl md:hidden flex flex-col items-center justify-center gap-10"
+          >
+            <nav className="flex flex-col items-center gap-8">
+              <Link
+                href="/#apps"
+                className="text-2xl font-bold text-white hover:text-sky-400 transition-colors"
+                onClick={closeMenu}
+              >
+                Nos apps
+              </Link>
+              <a
+                href="mailto:contact@mappli.fr"
+                className="btn-primary text-white px-8 py-4 rounded-xl text-lg font-bold"
+                onClick={closeMenu}
+              >
+                Contact
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

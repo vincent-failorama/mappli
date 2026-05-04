@@ -1,6 +1,7 @@
 export const metadata = {
   title: 'Politique de confidentialité — Sports Controls',
   description: "Politique de confidentialité de l'application Sports Controls.",
+  robots: { index: false, follow: false },
 };
 
 export default function PrivacyPolicy() {

@@ -6,6 +6,16 @@ export const metadata = {
   title: 'Sports Controls — Contrôle des équipements sportifs',
   description:
     'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs. Rapports PDF, suivi des anomalies, multi-sites.',
+  keywords: [
+    'inspection équipements sportifs',
+    'contrôle terrain',
+    'rapport PDF inspection',
+    'gestion anomalies',
+    'application mobile gestionnaire sportif',
+    'suivi équipements',
+    'dashboard multi-sites',
+    'iOS Android web',
+  ],
 };
 
 const FEATURES = [
@@ -118,12 +128,12 @@ export default function SportsControlsPage() {
                 href="https://sports-controls.web.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-brand-700 transition-colors"
+                className="btn-primary text-white px-6 py-3 rounded-xl font-semibold"
               >
                 Accéder au dashboard →
               </a>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:contact@mappli.fr"
                 className="bg-white border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 transition-colors"
               >
                 Demander une démo
@@ -215,7 +225,7 @@ export default function SportsControlsPage() {
                   {plan.price}
                 </div>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:contact@mappli.fr"
                   className={`block text-center py-2.5 rounded-xl font-semibold text-sm transition-colors ${
                     plan.highlight
                       ? 'bg-white text-brand-700 hover:bg-brand-50'
@@ -230,7 +240,7 @@ export default function SportsControlsPage() {
           <p className="text-center text-slate-400 text-sm mt-8">
             Essai gratuit 3 mois · Option catégorie supplémentaire : +90 €/an (Liberté &amp;
             Essentiel) ·{' '}
-            <a href="mailto:contact@example.com" className="underline hover:text-slate-600">
+            <a href="mailto:contact@mappli.fr" className="underline hover:text-slate-600">
               Demander un devis personnalisé
             </a>
           </p>
@@ -244,12 +254,40 @@ export default function SportsControlsPage() {
           Demandez votre accès d'essai gratuit — configuration en moins de 10 minutes.
         </p>
         <a
-          href="mailto:contact@example.com"
-          className="inline-block bg-brand-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-brand-700 transition-colors text-lg shadow-lg shadow-brand-200"
+          href="mailto:contact@mappli.fr"
+          className="btn-primary inline-block text-white font-bold px-8 py-4 rounded-xl text-lg"
         >
           Demander une démo →
         </a>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'Sports Controls',
+              description:
+                'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs.',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'iOS, Android, Web',
+              url: 'https://mappli.fr/apps/sports-controls',
+              offers: { '@type': 'Offer', price: '490', priceCurrency: 'EUR' },
+              author: { '@type': 'Organization', name: 'MAPPLI', url: 'https://mappli.fr' },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mappli.fr' },
+                { '@type': 'ListItem', position: 2, name: 'Sports Controls' },
+              ],
+            },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -28,12 +28,13 @@ export default function HomePage() {
             <span
               className="w-2 h-2 bg-emerald-400 rounded-full"
               style={{ animation: 'pulse-dot 2s ease-in-out infinite' }}
+              aria-label="Application disponible"
             />
             Sports Controls disponible sur l&apos;App Store & Play Store
           </div>
 
           {/* Headline — reveal mot par mot via SplitText */}
-          <h1 className="text-5xl sm:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
+          <h1 className="text-4xl sm:text-5xl md:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
             <SplitText text="Des apps pensées" delay={0.25} />
             <br />
             <span>pour </span>

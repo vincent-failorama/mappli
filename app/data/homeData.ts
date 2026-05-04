@@ -1,5 +1,5 @@
 // Import icons from react-icons/fa
-import { FaBuilding, FaFutbol, FaAmbulance, FaMobileAlt, FaCloud, FaBullseye } from 'react-icons/fa';
+import { FaBuilding, FaFutbol, FaAmbulance, FaHeartbeat, FaMobileAlt, FaCloud, FaBullseye } from 'react-icons/fa';
 
 export const APPS = [
   {
@@ -19,6 +19,15 @@ export const APPS = [
       'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs. Rapports PDF automatiques, suivi des anomalies en temps réel, multi-sites.',
     platforms: ['iOS', 'Android', 'Web'],
     href: '/apps/sports-controls',
+  },
+  {
+    icon: FaHeartbeat, // Icône médicale pour Bilan Secouriste
+    name: 'Bilan Secouriste',
+    tagline: 'Assistant opérationnel pour secouristes',
+    description:
+      'Application mobile hors-ligne pour pompiers, ambulanciers et secouristes. Bilan victimes, constantes, urgences vitales (ACR, hémorragie), export PDF SAMU et bases médicales de référence.',
+    platforms: ['iOS', 'Android'],
+    href: '/apps/bilan-secouriste',
   },
   {
     icon: FaAmbulance, // Icône d'ambulance pour Planificateur de Garde

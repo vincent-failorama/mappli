@@ -141,6 +141,7 @@ html {
 }
 .animate-marquee {
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 /* Animated gradient text */
@@ -150,7 +151,7 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 5s ease infinite;
+  animation: gradient-shift 9s ease infinite;
 }
 
 /* Shimmer badge */
@@ -224,6 +225,46 @@ html {
 /* ──────────────────────────────────────────────
    Accessibility (A11y)
 ────────────────────────────────────────────── */
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  padding: 8px 20px;
+  background: #0ea5e9;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  z-index: 9999;
+  outline: none;
+}
+
+/* Focus visible indicators */
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Active state press feedback */
+.btn-primary:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.35);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
