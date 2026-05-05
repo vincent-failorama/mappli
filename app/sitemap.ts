@@ -1,46 +1,56 @@
-export default function Sitemap() {
+import { MetadataRoute } from 'next';
+
+const BASE_URL = 'https://mappli.fr';
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://mappli.fr',
+      url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://mappli.fr/apps/sports-controls',
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/apps/bilan-secouriste`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://mappli.fr/apps/signalis',
+      url: `${BASE_URL}/apps/pompiers-planificateur`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://mappli.fr/apps/pompiers-planificateur',
+      url: `${BASE_URL}/apps/signalis`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://mappli.fr/apps/bilan-secouriste',
+      url: `${BASE_URL}/apps/sports-controls`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://mappli.fr/privacy-policy',
+      url: `${BASE_URL}/privacy-policy`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: 'https://mappli.fr/bilan-secouriste/privacy',
+      url: `${BASE_URL}/bilan-secouriste/privacy`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
   ];
 }

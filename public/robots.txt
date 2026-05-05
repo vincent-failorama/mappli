@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mappli.fr/sitemap.xml
