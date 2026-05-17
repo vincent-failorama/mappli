@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: 'MAPPLI Contact <noreply@mappli.fr>',
+      from: 'MAPPLI Contact <contact@mappli.fr>',
       to: 'contact@mappli.fr',
       replyTo: email,
       subject: `[MAPPLI] ${subjectLine} — ${name}`,
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
             </tr>
             <tr>
               <td style="padding: 8px 0; font-weight: 600; color: #374151;">Email</td>
-              <td style="padding: 8px 0; color: #111827;"><a href="mailto:${email}">${email}</a></td>
+              <td style="padding: 8px 0; color: #111827;">${email}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; font-weight: 600; color: #374151;">Sujet</td>
