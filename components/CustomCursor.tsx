@@ -1,9 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
 
 export default function CustomCursor() {
+  const [hasPointer, setHasPointer] = useState(false);
+
+  useEffect(() => {
+    setHasPointer(window.matchMedia('(pointer: fine)').matches);
+  }, []);
+
   const dotX = useMotionValue(-100);
   const dotY = useMotionValue(-100);
 
@@ -49,6 +55,8 @@ export default function CustomCursor() {
       window.removeEventListener('mouseout', onLeave);
     };
   }, [dotX, dotY, ringSize, ringBorderColor, ringBg, ringOpacity]);
+
+  if (!hasPointer) return null;
 
   return (
     <>

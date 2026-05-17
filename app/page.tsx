@@ -1,4 +1,9 @@
+import type { Metadata } from 'next';
 import AppCard from '../components/AppCard';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 import ScrollReveal, { StaggerContainer } from '../components/ScrollReveal';
 import StatCounter from '../components/StatCounter';
 import SplitText from '../components/SplitText';
@@ -35,12 +40,12 @@ export default function HomePage() {
 
           {/* Headline — reveal mot par mot via SplitText */}
           <h1 className="text-4xl sm:text-5xl md:text-[5.5rem] font-black text-white leading-[1.06] tracking-tight mb-7">
-            <SplitText text="Des apps pensées" delay={0.25} />
+            <SplitText text="Applications mobiles & web" delay={0.25} />
             <br />
-            <span>pour </span>
             <span className="gradient-text">
-              <SplitText text="les professionnels" delay={0.55} />
+              <SplitText text="sur mesure" delay={0.55} />
             </span>
+            <SplitText text=" pour les professionnels" delay={0.8} />
           </h1>
 
           {/* Subtext */}

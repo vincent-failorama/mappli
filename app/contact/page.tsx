@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Contact — MAPPLI',
   description: "Contactez MAPPLI pour un projet d'application mobile ou web sur mesure.",
   robots: { index: true, follow: true },
+  alternates: { canonical: '/contact' },
 };
 
 interface Props {

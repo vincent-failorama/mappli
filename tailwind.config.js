@@ -3,6 +3,12 @@ module.exports = {
   content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.15s ease-out',
+      },
       colors: {
         brand: {
           50: '#faf5ff',

@@ -5,7 +5,7 @@ import { FaFutbol, FaSearch, FaFilePdf, FaExclamationTriangle, FaGlobe, FaBell, 
 export const metadata = {
   title: 'Sports Controls — Contrôle des équipements sportifs',
   description:
-    'Application mobile et dashboard web pour inspecter, suivre et gérer les équipements sportifs. Rapports PDF, suivi des anomalies, multi-sites.',
+    'Application de contrôle des équipements sportifs ERP : inspections terrain guidées, rapports PDF réglementaires, suivi des anomalies et dashboard multi-sites sur Android, iOS et web.',
   keywords: [
     'inspection équipements sportifs',
     'contrôle terrain',
@@ -16,6 +16,7 @@ export const metadata = {
     'dashboard multi-sites',
     'iOS Android web',
   ],
+  alternates: { canonical: '/apps/sports-controls' },
 };
 
 const FEATURES = [
@@ -103,10 +104,10 @@ export default function SportsControlsPage() {
               <FaFutbol className="inline-block" /> {/* Rendu de l'icône */}
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
-              Sports Controls
+              Sports Controls — Application de contrôle des équipements sportifs
             </h1>
             <p className="text-xl text-slate-400 mb-6 font-medium">
-              Contrôle des équipements sportifs
+              Inspections terrain, rapports PDF réglementaires et suivi des anomalies multi-sites
             </p>
             <p className="text-slate-300 leading-relaxed mb-8">
               Application métier complète pour les gestionnaires d'équipements sportifs :

@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: 'MAPPLI Contact <onboarding@resend.dev>',
+      from: 'MAPPLI Contact <noreply@mappli.fr>',
       to: 'contact@mappli.fr',
       replyTo: email,
       subject: `[MAPPLI] ${subjectLine} — ${name}`,

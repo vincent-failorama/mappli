@@ -13,8 +13,8 @@ export default function StatCounter({ value, label }: { value: string; label: st
   const prefersReducedMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-10% 0px' });
-  const [count, setCount] = useState(0);
   const { prefix, num, suffix } = parseStatValue(value);
+  const [count, setCount] = useState(num);
 
   useEffect(() => {
     if (!isInView) return;

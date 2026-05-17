@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -28,8 +29,15 @@ export default function Navbar() {
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
         <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/" className="text-xl font-black text-white tracking-tight">
-            MAPPLI
+          <Link href="/" className="flex items-center" aria-label="MAPPLI — Accueil">
+            <Image
+              src="/logo-mappli.png"
+              alt="MAPPLI"
+              width={300}
+              height={64}
+              className="h-16 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

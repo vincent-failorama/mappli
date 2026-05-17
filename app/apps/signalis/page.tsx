@@ -5,7 +5,7 @@ import { FaBuilding, FaMobileAlt, FaChartBar, FaHardHat, FaMoon, FaTractor, FaPl
 export const metadata = {
   title: 'Signalis — Gestion des signalements pour les communes',
   description:
-    'Plateforme SaaS de gestion des signalements citoyens et interventions techniques pour les communes françaises.',
+    'Logiciel de signalement mairie : gérez les signalements citoyens, interventions techniques, astreintes et GMAO depuis une seule plateforme SaaS. Essai gratuit 100 jours.',
   keywords: [
     'gestion signalements communes',
     'plateforme SaaS collectivités',
@@ -16,6 +16,7 @@ export const metadata = {
     'gestion astreintes',
     'suivi interventions terrain',
   ],
+  alternates: { canonical: '/apps/signalis' },
 };
 
 const FEATURES = [
@@ -74,10 +75,10 @@ export default function SignalisPage() {
               <FaBuilding className="inline-block" /> {/* Rendu de l'icône */}
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
-              Signalis
+              Signalis — Logiciel de gestion des signalements pour les communes
             </h1>
             <p className="text-xl text-slate-400 mb-6 font-medium">
-              Plateforme SaaS pour les communes
+              Plateforme SaaS tout-en-un pour collectivités : signalements citoyens, interventions, GMAO
             </p>
             <p className="text-slate-300 leading-relaxed mb-8">
               Centralisez toute la chaîne de gestion technique de votre commune : du signalement citoyen jusqu'à l'intervention de l'agent. Fini les demandes perdues et le manque de traçabilité. Opérationnel en une journée, sans formation.

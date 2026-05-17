@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FeatureGrid from '../../../components/FeatureGrid';
+import LightboxImage from '../../../components/LightboxImage';
 import { FaHeartbeat, FaBolt, FaUsers, FaFilePdf, FaLock, FaBook } from 'react-icons/fa';
 
 export const metadata = {
@@ -17,6 +18,7 @@ export const metadata = {
     'PSE1 PSE2 outil',
     'ambulancier application',
   ],
+  alternates: { canonical: '/apps/bilan-secouriste' },
 };
 
 const FEATURES = [
@@ -75,10 +77,10 @@ export default function BilanSecouristePage() {
               <FaHeartbeat className="inline-block text-red-400" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
-              Bilan Secouriste
+              Bilan Secouriste — Application d&apos;aide aux pompiers et secouristes
             </h1>
             <p className="text-xl text-slate-400 mb-6 font-medium">
-              Assistant opérationnel pour secouristes
+              Bilans victimes, protocoles urgences vitales et export PDF SAMU — entièrement hors-ligne
             </p>
             <p className="text-slate-300 leading-relaxed mb-8">
               Conçu pour les pompiers, ambulanciers, infirmiers SMUR et secouristes PSE, Bilan
@@ -112,12 +114,55 @@ export default function BilanSecouristePage() {
             </div>
           </div>
 
-          {/* Placeholder screenshot */}
-          <div className="bg-gradient-to-br from-red-700/20 to-cyan-600/20 backdrop-blur-md rounded-2xl aspect-video flex items-center justify-center border border-white/10 shadow-2xl">
-            <div className="text-center text-red-300">
-              <div className="text-6xl mb-3">📱</div>
-              <p className="text-sm font-medium">Aperçu de l'application</p>
+          {/* Hero screenshot — écran principal */}
+          <div className="relative flex justify-center">
+            <div className="relative w-[260px] sm:w-[300px]">
+              <div className="absolute inset-0 bg-red-500/20 blur-3xl rounded-full scale-110 pointer-events-none" />
+              <LightboxImage
+                src="/screenshots/bilan-secouriste/Screenshot_1778942154.png"
+                alt="Bilan Secouriste — écran principal"
+                width={280}
+                height={560}
+                className="relative z-10 rounded-[2.5rem] shadow-2xl border border-white/10 w-full h-auto"
+                priority
+              />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Galerie de screenshots */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-sm font-bold text-red-400 uppercase tracking-[0.15em] mb-3 block">
+              Aperçu de l&apos;application
+            </span>
+            <h2 className="text-3xl font-bold text-white">L&apos;interface en situation réelle</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-end justify-items-center">
+            {[
+              { src: '/screenshots/bilan-secouriste/Screenshot_1778942733.png', alt: 'Constantes & Identité' },
+              { src: '/screenshots/bilan-secouriste/Screenshot_1778942201.png', alt: 'Bilan neurologique — Glasgow & AVC' },
+              { src: '/screenshots/bilan-secouriste/Screenshot_1778942154.png', alt: 'Écran principal' },
+              { src: '/screenshots/bilan-secouriste/Screenshot_1778942246.png', alt: 'Douleur thoracique — HEART score' },
+              { src: '/screenshots/bilan-secouriste/Screenshot_1778942303.png', alt: 'Brûlures — règle des 9' },
+            ].map(({ src, alt }, i) => (
+              <div
+                key={i}
+                className={`relative group ${i === 2 ? 'col-span-1 scale-110 z-10' : ''}`}
+              >
+                <div className="absolute inset-0 bg-red-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <LightboxImage
+                  src={src}
+                  alt={alt}
+                  width={200}
+                  height={400}
+                  className="rounded-[2rem] border border-white/10 shadow-xl w-full h-auto transition-transform duration-300 group-hover:-translate-y-2"
+                />
+                <p className="text-center text-xs text-slate-500 mt-2 px-1">{alt}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
