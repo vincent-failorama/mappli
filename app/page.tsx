@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import AppCard from '../components/AppCard';
+import FeatureCard from '../components/FeatureCard';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -43,7 +44,7 @@ export default function HomePage() {
             <SplitText text="Applications mobiles & web" delay={0.25} />
             <br />
             <span className="gradient-text">
-              <SplitText text="sur mesure" delay={0.55} />
+              <SplitText text="sur mesure" delay={0.55} gradient />
             </span>
             <SplitText text=" pour les professionnels" delay={0.8} />
           </h1>
@@ -76,7 +77,7 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <div className="hero-scroll absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <div className="w-px h-10 bg-gradient-to-b from-zinc-600 to-transparent animate-pulse" />
+          <div className="w-px h-10 bg-gradient-to-b from-zinc-600 to-transparent scroll-bounce" />
         </div>
       </section>
 
@@ -115,19 +116,11 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FEATURES.map((f) => (
               <ScrollReveal key={f.title}>
-                <div
-                  className="group p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
-                                hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 hover:border-white/20 hover:bg-white/[0.08]
-                                transition-all duration-300 h-full flex flex-col"
-                >
-                  <div className="text-4xl mb-6">
-                    {f.icon && <f.icon className="inline-block" />}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
-                    {f.title}
-                  </h3>
-                  <p className="text-zinc-400 leading-relaxed text-sm">{f.desc}</p>
-                </div>
+                <FeatureCard
+                  icon={f.icon ? <f.icon className="inline-block" /> : null}
+                  title={f.title}
+                  desc={f.desc}
+                />
               </ScrollReveal>
             ))}
           </StaggerContainer>
@@ -192,13 +185,13 @@ export default function HomePage() {
 
           <div className="space-y-5">
             {STEPS.map((step, i) => (
-              <ScrollReveal key={step.number} delay={i * 120}>
+              <ScrollReveal key={step.number} delay={i * 120} variant="left">
                 <div
-                  className="group flex gap-6 p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
+                  className="card-hover-shimmer group flex gap-6 p-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm
                                 hover:border-white/20 hover:shadow-xl hover:shadow-sky-500/10 hover:bg-white/[0.08]
                                 transition-all duration-300"
                 >
-                  <div className="text-6xl font-black text-white/10 group-hover:text-sky-500/30 transition-colors shrink-0 leading-none mt-1 select-none">
+                  <div className="text-6xl font-black text-white/10 group-hover:text-sky-500/30 group-hover:scale-110 transition-all duration-300 ease-out shrink-0 leading-none mt-1 select-none">
                     {step.number}
                   </div>
                   <div className="py-1">
@@ -233,8 +226,8 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-3xl p-14 text-center overflow-hidden">
               {/* Orbs inside card */}
-              <div className="absolute -top-10 -left-10 w-52 h-52 bg-sky-500/20 rounded-full blur-3xl animate-float pointer-events-none" />
-              <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-violet-500/20 rounded-full blur-3xl animate-float2 pointer-events-none" />
+              <div className="absolute -top-10 -left-10 w-52 h-52 bg-sky-500/20 rounded-full blur-3xl glow-pulse pointer-events-none" />
+              <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-violet-500/20 rounded-full blur-3xl glow-pulse-alt pointer-events-none" />
 
               <div className="relative z-10">
                 <span className="text-sm font-bold text-sky-400 uppercase tracking-[0.15em] mb-4 block">

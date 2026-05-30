@@ -1,5 +1,6 @@
 import { Montserrat } from 'next/font/google';
 import dynamic from 'next/dynamic';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main id="main-content" className="relative z-[2] pt-16">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

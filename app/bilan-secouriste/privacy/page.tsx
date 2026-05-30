@@ -1,3 +1,5 @@
+import EmailLink from '../../../components/EmailLink';
+
 export const metadata = {
   title: 'Politique de confidentialité — Bilan Secouriste',
   description: "Politique de confidentialité de l'application Bilan Secouriste.",
@@ -115,12 +117,7 @@ export default function BilanSecouristePrivacy() {
           <strong>Vincent Morvezen</strong>
           <br />
           Email :{' '}
-          <a
-            href="mailto:morvezen.vincent@gmail.com"
-            className="text-brand-400 hover:underline"
-          >
-            morvezen.vincent@gmail.com
-          </a>
+          <EmailLink className="text-sky-400 hover:underline" />
           <br />
           Site :{' '}
           <a href="https://mappli.fr" className="text-brand-400 hover:underline">

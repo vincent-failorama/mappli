@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useAnimation, MotionValue } from 'framer-motion';
 
 const PLATFORM_COLORS: Record<string, string> = {
   iOS: 'bg-white/10 text-zinc-300',
@@ -62,6 +62,7 @@ function GlareOverlay({ glareX, glareY }: { glareX: MotionValue<number>; glareY:
 export default function AppCard({ iconEl, name, tagline, description, platforms = [], href }: AppCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const { mouseX, mouseY, rotateX, rotateY, glareX, glareY } = useCardTilt();
+  const iconAnim = useAnimation();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = cardRef.current?.getBoundingClientRect();
@@ -70,15 +71,21 @@ export default function AppCard({ iconEl, name, tagline, description, platforms 
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
+  const handleMouseEnter = () => {
+    iconAnim.start({ scale: 1.2, x: 18, y: -4, rotate: 5, transition: { type: 'spring', stiffness: 280, damping: 18 } });
+  };
+
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    iconAnim.start({ scale: 1, x: 0, y: 0, rotate: 0, transition: { type: 'spring', stiffness: 280, damping: 18 } });
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: 800 }}
     >
@@ -96,9 +103,9 @@ export default function AppCard({ iconEl, name, tagline, description, platforms 
                         group-hover:from-sky-500/8 group-hover:to-violet-500/6 transition-all duration-300" />
 
         <Link href={href} className="relative z-20 p-7 flex flex-col gap-4 h-full">
-          <div className="text-5xl">
+          <motion.div className="text-5xl self-start" animate={iconAnim} initial={{ scale: 1, y: 0 }}>
             {iconEl}
-          </div>
+          </motion.div>
 
           <div>
             <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">

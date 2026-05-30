@@ -42,7 +42,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="/#apps" className="text-zinc-400 hover:text-white transition-colors">
+            <Link href="/#apps" className="nav-link-anim text-zinc-400 hover:text-white transition-colors">
               Nos apps
             </Link>
             <Link
