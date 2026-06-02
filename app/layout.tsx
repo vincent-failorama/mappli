@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 // Chargés uniquement côté client (window / document requis)
 const CustomCursor = dynamic(() => import('../components/CustomCursor'), { ssr: false });
-const BlobParallax = dynamic(() => import('../components/BlobParallax'), { ssr: false });
+const BokehBackground = dynamic(() => import('../components/BokehBackground'), { ssr: false });
 
 import type { Metadata } from 'next';
 
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-[#020617] text-white antialiased">
         <div className="noise" />
-        <BlobParallax />
+        <BokehBackground />
         <CustomCursor />
         <a href="#main-content" className="skip-link">
           Aller au contenu principal
