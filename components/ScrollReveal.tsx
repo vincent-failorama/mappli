@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion';
 
 type RevealVariant = 'up' | 'left' | 'right' | 'scale';
 
-const HIDDEN: Record<RevealVariant, object> = {
+const HIDDEN: Record<RevealVariant, Record<string, number>> = {
   up:    { opacity: 0, y: 32 },
   left:  { opacity: 0, x: -36 },
   right: { opacity: 0, x: 36 },
